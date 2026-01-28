@@ -1,0 +1,80 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Temperature Converter</title>
+  <style>
+    body {
+      font-family: Arial;
+      background: #f2f2f2;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .box {
+      background: white;
+      padding: 20px;
+      border-radius: 8px;
+      width: 300px;
+      text-align: center;
+    }
+    input, select, button {
+      width: 100%;
+      padding: 8px;
+      margin-top: 10px;
+    }
+  </style>
+</head>
+
+<body>
+
+<div class="box">
+  <h2>Temperature Converter</h2>
+
+  <input type="number" id="temp" placeholder="Enter temperature">
+
+  <select id="type">
+    <option value="cToF">Celsius → Fahrenheit</option>
+    <option value="fToC">Fahrenheit → Celsius</option>
+    <option value="CToK"> celsius to kelvin</option>
+    <option value= "kToC">kelvin to celsius</option>
+  </select>
+
+  <button onclick="convert()">Convert</button>
+
+  <p id="result"></p>
+</div>
+
+<script>
+function convert() {
+  let temp = document.getElementById("temp").value;
+  let type = document.getElementById("type").value;
+  let result = "";
+  var output = document.getElementById("result")
+
+  if (type === "cToF") {
+    result = (temp * 9 / 5) + 32;
+     
+      output.innerText=  "Result: " + result + " °F";
+
+  } else if (type === "fToC") {
+    result = (temp - 32) * 5 / 9;
+   output.innerText = "Result: " + result + " °C";
+     
+
+  } else if (type === "CToK") {
+    result = Number(temp) + 273.15;
+    output.innerText ="Result: " + result + " K";
+      
+
+  } else if (type === "kToC") {
+    result = temp - 273.15;
+    output.innerText ="Result: " + result + " °C";
+      
+  }
+}
+</script>
+
+
+</body>
+</html>
